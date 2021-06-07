@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="es-es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminSystem</title>
+    <link rel="shortcut icon" href="~/Assets/img/empire.png">
+    <!-- Bootstrap CSS -->
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="~/Assets/css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="~/Assets/css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="~/Assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+    <link href="~/Assets/css/style-responsive.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- container section start -->
+        <!--header start-->
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="/Home/Index" class="logo"><span class="fa fa-empire"></span> System<span class="lite">Admin</span></a>
+            <!--logo end-->
+
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!--sidebar start-->
+                <aside>
+                    <div id="sidebar" class="nav-collapse ">
+                        <!-- sidebar menu start-->
+                        <ul class="sidebar-menu">
+                            <!--
+    <li class="">
+        <a class="" href="/Home/Index">
+            <i class="fa fa-empire"></i>
+            <span>Index</span>
+        </a>
+    </li>
+    -->
+                            <li class="">
+                                <a class="" href="/MetodoPago/Crear">
+                                    <i class="fa fa-bitcoin"></i>
+                                    <span>Metodo de Pago</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="" href="/CuentaPorCobrar/Crear">
+                                    <i class="fa fa-list-alt"></i>
+                                    <span>Cuenta por Cobrar</span>
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="icon_document_alt"></i>
+                                    <span>Facturas</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Factura/Crear">Crear Factura</a></li>
+                                    <li><a class="" href="/Factura/Editar">Editar Factura</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-money"></i>
+                                    <span>Abono</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Abono/Crear">Nuevo Abono</a></li>
+                                    <li><a class="" href="/Abono/Editar">Editar Abono</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-file-text"></i>
+                                    <span>Notas</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Nota/Crear">Crear Nota</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-user-circle"></i>
+                                    <span>Cliente</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Cliente/Crear">Crear Cliente</a></li>
+                                    <li><a class="" href="/Cliente/Editar">Editar Cliente</a></li>
+                                    <li><a class="" href="/Cliente/Eliminar">Eliminar Cliente</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu ">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Sucursal</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Sucursal/Crear">Crear Sucursal</a></li>
+                                    <li><a class="" href="/Sucursal/Editar">Editar Sucursal</a></li>
+                                    <li><a class="" href="/Sucursal/Eliminar">Eliminar Sucursal</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-globe"></i>
+                                    <span>Provincia</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Provincia/Crear">Crear Provincia</a></li>
+                                    <li><a class="" href="/Provincia/Editar">Editar Provincia</a></li>
+                                    <li><a class="" href="/Provincia/Eliminar">Eliminar Provincia</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-globe"></i>
+                                    <span>Cantón</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Canton/Crear">Crear Cantón</a></li>
+                                    <li><a class="" href="/Canton/Editar">Editar Cantón</a></li>
+                                    <li><a class="" href="/Canton/Eliminar">Eliminar Cantón</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
+                                    <i class="fa fa-globe"></i>
+                                    <span>Distrito</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a class="" href="/Distrito/Crear">Crear Distrito</a></li>
+                                    <li><a class="" href="/Distrito/Editar">Editar Distrito</a></li>
+                                    <li><a class="" href="/Distrito/Eliminar">Eliminar Distrito</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                        <!-- sidebar menu end-->
+                        </div>
+                </aside>
+            </div>
+            
+        </aside>
+                <!--sidebar end-->
+                <!--main content start-->
+
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><i class="fa fa-empire"></i> @ViewBag.Title</h3>
+                        <!--
+              <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-bars"></i>Pages</li>
+              <li><i class="fa fa-square-o"></i>Pages</li>
+            </ol>
+
+            -->
+                    </div>
+                </div>
+                <!-- page start-->
+                @RenderBody()
+                <!-- page end-->
+            </section>
+        </section>                
+    <!-- page end-->
+            
+                <!--main content end-->
+    <!-- container section end -->
+    <!-- javascripts -->
+    <script src="~/Assets/js/jquery.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="~/Assets/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="~/Assets/js/scripts.js"></script>
+</body>
+</html>
