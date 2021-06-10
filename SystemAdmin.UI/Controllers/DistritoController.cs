@@ -17,9 +17,11 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
-        public ActionResult Eliminar()
+
+        public ActionResult Distritos()
         {
             return View();
         }
+
     }
 }

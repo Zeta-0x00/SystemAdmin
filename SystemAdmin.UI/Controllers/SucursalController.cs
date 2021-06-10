@@ -13,6 +13,11 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
+        public ActionResult Sucursales()
+        {
+            return View();
+        }
+
         public ActionResult Editar()
         {
             return View();

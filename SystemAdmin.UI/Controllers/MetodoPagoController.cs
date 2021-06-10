@@ -9,9 +9,10 @@ namespace SystemAdmin.UI.Controllers
     public class MetodoPagoController : Controller
     {
         // GET: MetodoPago
-        public ActionResult Crear()
+        public ActionResult Metodos()
         {
             return View();
         }
+
     }
 }

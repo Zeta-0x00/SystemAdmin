@@ -13,6 +13,11 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
+
+        public ActionResult Cantones()
+        {
+            return View();
+        }
         public ActionResult Editar()
         {
             return View();

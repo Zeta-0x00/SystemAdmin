@@ -18,6 +18,11 @@ namespace SystemAdmin.UI.Controllers
             return View();
         }
 
+        public ActionResult Clientes()
+        {
+            return View();
+        }
+
         public ActionResult Editar()
         {
             return View();
@@ -26,5 +31,7 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
+
+
     }
 }

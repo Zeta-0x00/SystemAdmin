@@ -13,6 +13,12 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
+        public ActionResult Provincias()
+        {
+            return View();
+        }
+
+
         public ActionResult Editar()
         {
             return View();
