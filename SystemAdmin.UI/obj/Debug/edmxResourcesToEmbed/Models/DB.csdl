@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Abono">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="idMetodoPago" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FKcedulaAbono" FromRole="Abono" ToRole="Cliente" />
+    <NavigationProperty Name="CuentaPorCobrar" Relationship="Self.FKcpcAbonos" FromRole="Abono" ToRole="CuentaPorCobrar" />
+    <NavigationProperty Name="Factura" Relationship="Self.FKfacturaAbono" FromRole="Abono" ToRole="Factura" />
+    <NavigationProperty Name="MetodoPago" Relationship="Self.FKmetodoPago" FromRole="Abono" ToRole="MetodoPago" />
+  </EntityType>
+  <EntityType Name="Canton">
+    <Key>
+      <PropertyRef Name="idCanton" />
+    </Key>
+    <Property Name="idCanton" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idProvincia" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Provincia" Relationship="Self.FKcantonProvincia" FromRole="Canton" ToRole="Provincia" />
+    <NavigationProperty Name="Distrito" Relationship="Self.FKdistritoCanton" FromRole="Canton" ToRole="Distrito" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="saldoGeneral" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="direccionExacta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idDistrito" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Abono" Relationship="Self.FKcedulaAbono" FromRole="Cliente" ToRole="Abono" />
+    <NavigationProperty Name="Nota" Relationship="Self.FKcedulaNota" FromRole="Cliente" ToRole="Nota" />
+    <NavigationProperty Name="Distrito" Relationship="Self.FKclienteDistrito" FromRole="Cliente" ToRole="Distrito" />
+    <NavigationProperty Name="Correo" Relationship="Self.FKcorreoCliente" FromRole="Cliente" ToRole="Correo" />
+    <NavigationProperty Name="CuentaPorCobrar" Relationship="Self.FKcpcCliente" FromRole="Cliente" ToRole="CuentaPorCobrar" />
+    <NavigationProperty Name="Factura" Relationship="Self.FKFacturaCliente" FromRole="Cliente" ToRole="Factura" />
+    <NavigationProperty Name="Telefono" Relationship="Self.fkTelefonoCliente" FromRole="Cliente" ToRole="Telefono" />
+  </EntityType>
+  <EntityType Name="Correo">
+    <Key>
+      <PropertyRef Name="cedulaCliente" />
+      <PropertyRef Name="correo1" />
+    </Key>
+    <Property Name="cedulaCliente" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="correo1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FKcorreoCliente" FromRole="Correo" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="CuentaPorCobrar">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="plazo" Type="Int32" Nullable="false" />
+    <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="saldo" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="codigoAbono" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Abono" Relationship="Self.FKcpcAbonos" FromRole="CuentaPorCobrar" ToRole="Abono" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FKcpcCliente" FromRole="CuentaPorCobrar" ToRole="Cliente" />
+    <NavigationProperty Name="Factura" Relationship="Self.FKcpcFactura" FromRole="CuentaPorCobrar" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="idDistrito" />
+    </Key>
+    <Property Name="idDistrito" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCanton" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Canton" Relationship="Self.FKdistritoCanton" FromRole="Distrito" ToRole="Canton" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FKclienteDistrito" FromRole="Distrito" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="idFactura" />
+    </Key>
+    <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="montoBruto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="montoDescuento" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="montoImpuesto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="montoNeto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="notas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="credito" Type="Boolean" Nullable="false" />
+    <Property Name="contado" Type="Boolean" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="idSucursal" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Abono" Relationship="Self.FKfacturaAbono" FromRole="Factura" ToRole="Abono" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FKFacturaCliente" FromRole="Factura" ToRole="Cliente" />
+    <NavigationProperty Name="CuentaPorCobrar" Relationship="Self.FKcpcFactura" FromRole="Factura" ToRole="CuentaPorCobrar" />
+    <NavigationProperty Name="Nota" Relationship="Self.FKidFacturaNota" FromRole="Factura" ToRole="Nota" />
+    <NavigationProperty Name="Sucursal" Relationship="Self.FKSucursal" FromRole="Factura" ToRole="Sucursal" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="idMetodoPago" />
+    </Key>
+    <Property Name="idMetodoPago" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="metodo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Abono" Relationship="Self.FKmetodoPago" FromRole="MetodoPago" ToRole="Abono" />
+  </EntityType>
+  <EntityType Name="Nota">
+    <Key>
+      <PropertyRef Name="idNota" />
+    </Key>
+    <Property Name="idNota" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="notas" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="notaCredito" Type="Boolean" Nullable="false" />
+    <Property Name="notaDebido" Type="Boolean" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FKcedulaNota" FromRole="Nota" ToRole="Cliente" />
+    <NavigationProperty Name="Factura" Relationship="Self.FKidFacturaNota" FromRole="Nota" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="idProvincia" />
+    </Key>
+    <Property Name="idProvincia" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Canton" Relationship="Self.FKcantonProvincia" FromRole="Provincia" ToRole="Canton" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="idSucursal" />
+    </Key>
+    <Property Name="idSucursal" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FKSucursal" FromRole="Sucursal" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Telefono">
+    <Key>
+      <PropertyRef Name="cedulaCliente" />
+      <PropertyRef Name="numTelefono" />
+    </Key>
+    <Property Name="cedulaCliente" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="numTelefono" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.fkTelefonoCliente" FromRole="Telefono" ToRole="Cliente" />
+  </EntityType>
+  <Association Name="FKcedulaAbono">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Abono">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcpcAbonos">
+    <End Role="Abono" Type="Self.Abono" Multiplicity="1" />
+    <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abono">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="CuentaPorCobrar">
+        <PropertyRef Name="codigoAbono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKfacturaAbono">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="Abono">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKmetodoPago">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="1" />
+    <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="idMetodoPago" />
+      </Principal>
+      <Dependent Role="Abono">
+        <PropertyRef Name="idMetodoPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcantonProvincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+    <End Role="Canton" Type="Self.Canton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="idProvincia" />
+      </Principal>
+      <Dependent Role="Canton">
+        <PropertyRef Name="idProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKdistritoCanton">
+    <End Role="Canton" Type="Self.Canton" Multiplicity="1" />
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="idCanton" />
+      </Principal>
+      <Dependent Role="Distrito">
+        <PropertyRef Name="idCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcedulaNota">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKclienteDistrito">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="idDistrito" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcorreoCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Correo" Type="Self.Correo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Correo">
+        <PropertyRef Name="cedulaCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcpcCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="CuentaPorCobrar">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKFacturaCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkTelefonoCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Telefono">
+        <PropertyRef Name="cedulaCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcpcFactura">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="CuentaPorCobrar">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKidFacturaNota">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="idSucursal" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProyectoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abono" EntityType="Self.Abono" />
+    <EntitySet Name="Canton" EntityType="Self.Canton" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Correo" EntityType="Self.Correo" />
+    <EntitySet Name="CuentaPorCobrar" EntityType="Self.CuentaPorCobrar" />
+    <EntitySet Name="Distrito" EntityType="Self.Distrito" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" />
+    <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" />
+    <EntitySet Name="Nota" EntityType="Self.Nota" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+    <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+    <EntitySet Name="Telefono" EntityType="Self.Telefono" />
+    <AssociationSet Name="FKcedulaAbono" Association="Self.FKcedulaAbono">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Abono" EntitySet="Abono" />
+    </AssociationSet>
+    <AssociationSet Name="FKcpcAbonos" Association="Self.FKcpcAbonos">
+      <End Role="Abono" EntitySet="Abono" />
+      <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FKfacturaAbono" Association="Self.FKfacturaAbono">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Abono" EntitySet="Abono" />
+    </AssociationSet>
+    <AssociationSet Name="FKmetodoPago" Association="Self.FKmetodoPago">
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+      <End Role="Abono" EntitySet="Abono" />
+    </AssociationSet>
+    <AssociationSet Name="FKcantonProvincia" Association="Self.FKcantonProvincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Canton" EntitySet="Canton" />
+    </AssociationSet>
+    <AssociationSet Name="FKdistritoCanton" Association="Self.FKdistritoCanton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="Distrito" EntitySet="Distrito" />
+    </AssociationSet>
+    <AssociationSet Name="FKcedulaNota" Association="Self.FKcedulaNota">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FKclienteDistrito" Association="Self.FKclienteDistrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FKcorreoCliente" Association="Self.FKcorreoCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Correo" EntitySet="Correo" />
+    </AssociationSet>
+    <AssociationSet Name="FKcpcCliente" Association="Self.FKcpcCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FKFacturaCliente" Association="Self.FKFacturaCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fkTelefonoCliente" Association="Self.fkTelefonoCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Telefono" EntitySet="Telefono" />
+    </AssociationSet>
+    <AssociationSet Name="FKcpcFactura" Association="Self.FKcpcFactura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FKidFacturaNota" Association="Self.FKidFacturaNota">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FKSucursal" Association="Self.FKSucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <FunctionImport Name="create_abono" ReturnType="Collection(Int32)">
+      <Parameter Name="codigo" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="monto" Mode="In" Type="Decimal" />
+      <Parameter Name="idMetodoPago" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="idFactura" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_canton" ReturnType="Collection(Int32)">
+      <Parameter Name="idCanton" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_cliente" ReturnType="Collection(Int32)">
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="saldoGeneral" Mode="In" Type="Decimal" />
+      <Parameter Name="direccionExacta" Mode="In" Type="String" />
+      <Parameter Name="idDistrito" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_correo" ReturnType="Collection(Int32)">
+      <Parameter Name="cedulaCliente" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_cuentaPorCobrar" ReturnType="Collection(Int32)">
+      <Parameter Name="codigo" Mode="In" Type="String" />
+      <Parameter Name="plazo" Mode="In" Type="Int32" />
+      <Parameter Name="vencimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="saldo" Mode="In" Type="Decimal" />
+      <Parameter Name="idFactura" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="codigoAbono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_distrito" ReturnType="Collection(Int32)">
+      <Parameter Name="idDistrito" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_factura" ReturnType="Collection(Int32)">
+      <Parameter Name="idFactura" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="montoBruto" Mode="In" Type="Decimal" />
+      <Parameter Name="montoDescuento" Mode="In" Type="Decimal" />
+      <Parameter Name="montoImpuesto" Mode="In" Type="Decimal" />
+      <Parameter Name="montoNeto" Mode="In" Type="Decimal" />
+      <Parameter Name="notas" Mode="In" Type="String" />
+      <Parameter Name="credito" Mode="In" Type="Boolean" />
+      <Parameter Name="contado" Mode="In" Type="Boolean" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="idSucursal" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_metodoPago" ReturnType="Collection(Int32)">
+      <Parameter Name="idMetodoPago" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="metodo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_provincia" ReturnType="Collection(Int32)">
+      <Parameter Name="idProvincia" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_Sucursal" ReturnType="Collection(Int32)">
+      <Parameter Name="idSucursal" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="create_telefono" ReturnType="Collection(Int32)">
+      <Parameter Name="cedulaCliente" Mode="In" Type="String" />
+      <Parameter Name="numTelefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="delete_canton" ReturnType="Collection(Int32)">
+      <Parameter Name="idCanton" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="delete_cliente" ReturnType="Collection(Int32)">
+      <Parameter Name="cedula" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="delete_distrito" ReturnType="Collection(Int32)">
+      <Parameter Name="idDistrito" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="delete_provincia" ReturnType="Collection(Int32)">
+      <Parameter Name="idProvincia" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="delete_Sucursal" ReturnType="Collection(Int32)">
+      <Parameter Name="idSucursal" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="get_abonos" ReturnType="Collection(ProyectoModel.get_abonos_Result)" />
+    <FunctionImport Name="get_cantones" ReturnType="Collection(ProyectoModel.get_cantones_Result)" />
+    <FunctionImport Name="get_clientes" ReturnType="Collection(ProyectoModel.get_clientes_Result)" />
+    <FunctionImport Name="get_correos_cliente" ReturnType="Collection(String)">
+      <Parameter Name="cedula" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="get_cuentaPorCobrar" ReturnType="Collection(ProyectoModel.get_cuentaPorCobrar_Result)" />
+    <FunctionImport Name="get_distritos" ReturnType="Collection(ProyectoModel.get_distritos_Result)" />
+    <FunctionImport Name="get_facturas" ReturnType="Collection(ProyectoModel.get_facturas_Result)" />
+    <FunctionImport Name="get_metodoPago" ReturnType="Collection(ProyectoModel.get_metodoPago_Result)" />
+    <FunctionImport Name="get_notas" ReturnType="Collection(ProyectoModel.get_notas_Result)" />
+    <FunctionImport Name="get_provincias" ReturnType="Collection(ProyectoModel.get_provincias_Result)" />
+    <FunctionImport Name="get_sucursal" ReturnType="Collection(ProyectoModel.get_sucursal_Result)" />
+    <FunctionImport Name="get_telefonos_cliente" ReturnType="Collection(String)">
+      <Parameter Name="cedula" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_abono" ReturnType="Collection(Int32)">
+      <Parameter Name="codigo" Mode="In" Type="String" />
+      <Parameter Name="fecha" Mode="In" Type="DateTime" />
+      <Parameter Name="monto" Mode="In" Type="Decimal" />
+      <Parameter Name="idMetodoPago" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="idFactura" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_canton" ReturnType="Collection(Int32)">
+      <Parameter Name="idCanton" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_cliente" ReturnType="Collection(Int32)">
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="saldoGeneral" Mode="In" Type="Decimal" />
+      <Parameter Name="direccionExacta" Mode="In" Type="String" />
+      <Parameter Name="idDistrito" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_correo" ReturnType="Collection(Int32)">
+      <Parameter Name="cedulaCliente" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_distrito" ReturnType="Collection(Int32)">
+      <Parameter Name="idDistrito" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_provincia" ReturnType="Collection(String)">
+      <Parameter Name="idProvincia" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_Sucursal" ReturnType="Collection(Int32)">
+      <Parameter Name="idSucursal" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="modify_telefono" ReturnType="Collection(Int32)">
+      <Parameter Name="cedulaCliente" Mode="In" Type="String" />
+      <Parameter Name="numTelefono" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="get_abonos_Result">
+    <Property Type="String" Name="codigo" Nullable="false" MaxLength="4" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Decimal" Name="monto" Nullable="false" Precision="19" />
+    <Property Type="String" Name="idMetodoPago" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="idFactura" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="get_cantones_Result">
+    <Property Type="String" Name="idCanton" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="idProvincia" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="get_clientes_Result">
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="saldoGeneral" Nullable="true" Precision="19" />
+    <Property Type="String" Name="direccionExacta" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="idDistrito" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="get_cuentaPorCobrar_Result">
+    <Property Type="String" Name="codigo" Nullable="false" MaxLength="4" />
+    <Property Type="Int32" Name="plazo" Nullable="false" />
+    <Property Type="DateTime" Name="vencimiento" Nullable="false" />
+    <Property Type="Decimal" Name="saldo" Nullable="false" Precision="19" />
+    <Property Type="String" Name="idFactura" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="codigoAbono" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="get_distritos_Result">
+    <Property Type="String" Name="idDistrito" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="idCanton" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="get_facturas_Result">
+    <Property Type="String" Name="idFactura" Nullable="false" MaxLength="8" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Decimal" Name="montoBruto" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="montoDescuento" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="montoImpuesto" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="montoNeto" Nullable="false" Precision="19" />
+    <Property Type="String" Name="notas" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="credito" Nullable="false" />
+    <Property Type="Boolean" Name="contado" Nullable="false" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="idSucursal" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="get_metodoPago_Result">
+    <Property Type="String" Name="idMetodoPago" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="metodo" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="get_notas_Result">
+    <Property Type="String" Name="idNota" Nullable="false" MaxLength="8" />
+    <Property Type="DateTime" Name="fecha" Nullable="true" />
+    <Property Type="Decimal" Name="monto" Nullable="false" Precision="19" />
+    <Property Type="String" Name="notas" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="notaCredito" Nullable="false" />
+    <Property Type="Boolean" Name="notaDebido" Nullable="false" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="idFactura" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="get_provincias_Result">
+    <Property Type="String" Name="idProvincia" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="get_sucursal_Result">
+    <Property Type="String" Name="idSucursal" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+  </ComplexType>
+</Schema>

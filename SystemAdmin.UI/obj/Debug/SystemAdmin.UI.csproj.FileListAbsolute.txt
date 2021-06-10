@@ -76,3 +76,7 @@ C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.c
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.csproj.CopyComplete
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.pdb
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.dll
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.SqlServer.dll
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.xml
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.SqlServer.xml

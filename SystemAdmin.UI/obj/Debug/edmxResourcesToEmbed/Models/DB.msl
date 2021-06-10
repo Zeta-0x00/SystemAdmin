@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoModelStoreContainer" CdmEntityContainer="ProyectoEntities">
+    <EntitySetMapping Name="Abono">
+      <EntityTypeMapping TypeName="ProyectoModel.Abono">
+        <MappingFragment StoreEntitySet="Abono">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Canton">
+      <EntityTypeMapping TypeName="ProyectoModel.Canton">
+        <MappingFragment StoreEntitySet="Canton">
+          <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="ProyectoModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="saldoGeneral" ColumnName="saldoGeneral" />
+          <ScalarProperty Name="direccionExacta" ColumnName="direccionExacta" />
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correo">
+      <EntityTypeMapping TypeName="ProyectoModel.Correo">
+        <MappingFragment StoreEntitySet="Correo">
+          <ScalarProperty Name="cedulaCliente" ColumnName="cedulaCliente" />
+          <ScalarProperty Name="correo1" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CuentaPorCobrar">
+      <EntityTypeMapping TypeName="ProyectoModel.CuentaPorCobrar">
+        <MappingFragment StoreEntitySet="CuentaPorCobrar">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="plazo" ColumnName="plazo" />
+          <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="codigoAbono" ColumnName="codigoAbono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distrito">
+      <EntityTypeMapping TypeName="ProyectoModel.Distrito">
+        <MappingFragment StoreEntitySet="Distrito">
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factura">
+      <EntityTypeMapping TypeName="ProyectoModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="montoBruto" ColumnName="montoBruto" />
+          <ScalarProperty Name="montoDescuento" ColumnName="montoDescuento" />
+          <ScalarProperty Name="montoImpuesto" ColumnName="montoImpuesto" />
+          <ScalarProperty Name="montoNeto" ColumnName="montoNeto" />
+          <ScalarProperty Name="notas" ColumnName="notas" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="contado" ColumnName="contado" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MetodoPago">
+      <EntityTypeMapping TypeName="ProyectoModel.MetodoPago">
+        <MappingFragment StoreEntitySet="MetodoPago">
+          <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="metodo" ColumnName="metodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nota">
+      <EntityTypeMapping TypeName="ProyectoModel.Nota">
+        <MappingFragment StoreEntitySet="Nota">
+          <ScalarProperty Name="idNota" ColumnName="idNota" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="notas" ColumnName="notas" />
+          <ScalarProperty Name="notaCredito" ColumnName="notaCredito" />
+          <ScalarProperty Name="notaDebido" ColumnName="notaDebido" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincia">
+      <EntityTypeMapping TypeName="ProyectoModel.Provincia">
+        <MappingFragment StoreEntitySet="Provincia">
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursal">
+      <EntityTypeMapping TypeName="ProyectoModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefono">
+      <EntityTypeMapping TypeName="ProyectoModel.Telefono">
+        <MappingFragment StoreEntitySet="Telefono">
+          <ScalarProperty Name="cedulaCliente" ColumnName="cedulaCliente" />
+          <ScalarProperty Name="numTelefono" ColumnName="numTelefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="create_abono" FunctionName="ProyectoModel.Store.create_abono" />
+    <FunctionImportMapping FunctionImportName="create_canton" FunctionName="ProyectoModel.Store.create_canton" />
+    <FunctionImportMapping FunctionImportName="create_cliente" FunctionName="ProyectoModel.Store.create_cliente" />
+    <FunctionImportMapping FunctionImportName="create_correo" FunctionName="ProyectoModel.Store.create_correo" />
+    <FunctionImportMapping FunctionImportName="create_cuentaPorCobrar" FunctionName="ProyectoModel.Store.create_cuentaPorCobrar" />
+    <FunctionImportMapping FunctionImportName="create_distrito" FunctionName="ProyectoModel.Store.create_distrito" />
+    <FunctionImportMapping FunctionImportName="create_factura" FunctionName="ProyectoModel.Store.create_factura" />
+    <FunctionImportMapping FunctionImportName="create_metodoPago" FunctionName="ProyectoModel.Store.create_metodoPago" />
+    <FunctionImportMapping FunctionImportName="create_provincia" FunctionName="ProyectoModel.Store.create_provincia" />
+    <FunctionImportMapping FunctionImportName="create_Sucursal" FunctionName="ProyectoModel.Store.create_Sucursal" />
+    <FunctionImportMapping FunctionImportName="create_telefono" FunctionName="ProyectoModel.Store.create_telefono" />
+    <FunctionImportMapping FunctionImportName="delete_canton" FunctionName="ProyectoModel.Store.delete_canton" />
+    <FunctionImportMapping FunctionImportName="delete_cliente" FunctionName="ProyectoModel.Store.delete_cliente" />
+    <FunctionImportMapping FunctionImportName="delete_distrito" FunctionName="ProyectoModel.Store.delete_distrito" />
+    <FunctionImportMapping FunctionImportName="delete_provincia" FunctionName="ProyectoModel.Store.delete_provincia" />
+    <FunctionImportMapping FunctionImportName="delete_Sucursal" FunctionName="ProyectoModel.Store.delete_Sucursal" />
+    <FunctionImportMapping FunctionImportName="get_abonos" FunctionName="ProyectoModel.Store.get_abonos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_abonos_Result">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_cantones" FunctionName="ProyectoModel.Store.get_cantones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_cantones_Result">
+          <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_clientes" FunctionName="ProyectoModel.Store.get_clientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_clientes_Result">
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="saldoGeneral" ColumnName="saldoGeneral" />
+          <ScalarProperty Name="direccionExacta" ColumnName="direccionExacta" />
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_correos_cliente" FunctionName="ProyectoModel.Store.get_correos_cliente" />
+    <FunctionImportMapping FunctionImportName="get_cuentaPorCobrar" FunctionName="ProyectoModel.Store.get_cuentaPorCobrar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_cuentaPorCobrar_Result">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="plazo" ColumnName="plazo" />
+          <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="codigoAbono" ColumnName="codigoAbono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_distritos" FunctionName="ProyectoModel.Store.get_distritos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_distritos_Result">
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCanton" ColumnName="idCanton" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_facturas" FunctionName="ProyectoModel.Store.get_facturas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_facturas_Result">
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="montoBruto" ColumnName="montoBruto" />
+          <ScalarProperty Name="montoDescuento" ColumnName="montoDescuento" />
+          <ScalarProperty Name="montoImpuesto" ColumnName="montoImpuesto" />
+          <ScalarProperty Name="montoNeto" ColumnName="montoNeto" />
+          <ScalarProperty Name="notas" ColumnName="notas" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="contado" ColumnName="contado" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_metodoPago" FunctionName="ProyectoModel.Store.get_metodoPago">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_metodoPago_Result">
+          <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="metodo" ColumnName="metodo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_notas" FunctionName="ProyectoModel.Store.get_notas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_notas_Result">
+          <ScalarProperty Name="idNota" ColumnName="idNota" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="notas" ColumnName="notas" />
+          <ScalarProperty Name="notaCredito" ColumnName="notaCredito" />
+          <ScalarProperty Name="notaDebido" ColumnName="notaDebido" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_provincias" FunctionName="ProyectoModel.Store.get_provincias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_provincias_Result">
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_sucursal" FunctionName="ProyectoModel.Store.get_sucursal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoModel.get_sucursal_Result">
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_telefonos_cliente" FunctionName="ProyectoModel.Store.get_telefonos_cliente" />
+    <FunctionImportMapping FunctionImportName="modify_abono" FunctionName="ProyectoModel.Store.modify_abono" />
+    <FunctionImportMapping FunctionImportName="modify_canton" FunctionName="ProyectoModel.Store.modify_canton" />
+    <FunctionImportMapping FunctionImportName="modify_cliente" FunctionName="ProyectoModel.Store.modify_cliente" />
+    <FunctionImportMapping FunctionImportName="modify_correo" FunctionName="ProyectoModel.Store.modify_correo" />
+    <FunctionImportMapping FunctionImportName="modify_distrito" FunctionName="ProyectoModel.Store.modify_distrito" />
+    <FunctionImportMapping FunctionImportName="modify_provincia" FunctionName="ProyectoModel.Store.modify_provincia" />
+    <FunctionImportMapping FunctionImportName="modify_Sucursal" FunctionName="ProyectoModel.Store.modify_Sucursal" />
+    <FunctionImportMapping FunctionImportName="modify_telefono" FunctionName="ProyectoModel.Store.modify_telefono" />
+  </EntityContainerMapping>
+</Mapping>
