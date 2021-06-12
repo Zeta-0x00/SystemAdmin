@@ -1,4 +1,4 @@
-﻿
+﻿@model List<SystemAdmin.UI.Models.ViewModels.ListClientesViewModel>
 @{
     ViewBag.Title = "Créditos";
     Layout = "~/Views/Layouts/Layout.cshtml";
@@ -41,5 +41,30 @@
             </div>
         </div>
     </div>
-    
+
 </section>
+<section>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tr>
+                        <th>Cedula</th>
+                        <th>Nombre</th>
+                        <th>Saldo General</th>
+                        <th>Dirección exácta</th>
+                        <th>Distrito ID</th>
+                    </tr>
+                    @foreach (var oELemento in Model)
+                    {
+                <tr>
+                    <td>@oELemento.cedula</td>
+                    <td>@oELemento.nombre</td>
+                    <td>@oELemento.saldoGeneral</td>
+                    <td>@oELemento.direcconExacta</td>
+                    <td>@oELemento.idDistrito</td>
+                </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </section>

@@ -50,6 +50,8 @@ C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\roslyn\vbc.exe.config
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\roslyn\vbc.rsp
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\roslyn\VBCSCompiler.exe
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.dll
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.SqlServer.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Helpers.dll
@@ -58,6 +60,8 @@ C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Razor.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Webpages.Deployment.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Webpages.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Webpages.Razor.dll
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.xml
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\EntityFramework.SqlServer.xml
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Razor.xml
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Webpages.xml
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\System.Web.Webpages.Deployment.xml
@@ -71,8 +75,8 @@ C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\es\System.Web.Webpages
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\es\System.Web.Helpers.resources.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\bin\es\System.Web.Mvc.resources.dll
-C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.csprojAssemblyReference.cache
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.csproj.CoreCompileInputs.cache
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.csproj.CopyComplete
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.dll
 C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.pdb
+C:\Users\Zeta\source\repos\SystemAdmin\SystemAdmin.UI\obj\Debug\SystemAdmin.UI.csprojAssemblyReference.cache

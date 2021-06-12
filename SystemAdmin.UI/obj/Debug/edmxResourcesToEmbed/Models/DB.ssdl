@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Abono">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="monto" Type="money" Nullable="false" />
+    <Property Name="idMetodoPago" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="cedula" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="idFactura" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Canton">
+    <Key>
+      <PropertyRef Name="idCanton" />
+    </Key>
+    <Property Name="idCanton" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idProvincia" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="cedula" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="saldoGeneral" Type="money" />
+    <Property Name="direccionExacta" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="idDistrito" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Correo">
+    <Key>
+      <PropertyRef Name="cedulaCliente" />
+      <PropertyRef Name="correo" />
+    </Key>
+    <Property Name="cedulaCliente" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CuentaPorCobrar">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="plazo" Type="int" Nullable="false" />
+    <Property Name="vencimiento" Type="date" Nullable="false" />
+    <Property Name="saldo" Type="money" Nullable="false" />
+    <Property Name="idFactura" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="cedula" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="codigoAbono" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="idDistrito" />
+    </Key>
+    <Property Name="idDistrito" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idCanton" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="idFactura" />
+    </Key>
+    <Property Name="idFactura" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="montoBruto" Type="money" Nullable="false" />
+    <Property Name="montoDescuento" Type="money" />
+    <Property Name="montoImpuesto" Type="money" Nullable="false" />
+    <Property Name="montoNeto" Type="money" Nullable="false" />
+    <Property Name="notas" Type="varchar" MaxLength="100" />
+    <Property Name="credito" Type="bit" Nullable="false" />
+    <Property Name="contado" Type="bit" Nullable="false" />
+    <Property Name="cedula" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="idSucursal" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetodoPago">
+    <Key>
+      <PropertyRef Name="idMetodoPago" />
+    </Key>
+    <Property Name="idMetodoPago" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="metodo" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nota">
+    <Key>
+      <PropertyRef Name="idNota" />
+    </Key>
+    <Property Name="idNota" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="monto" Type="money" Nullable="false" />
+    <Property Name="notas" Type="varchar" MaxLength="200" />
+    <Property Name="notaCredito" Type="bit" Nullable="false" />
+    <Property Name="notaDebido" Type="bit" Nullable="false" />
+    <Property Name="cedula" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="idFactura" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="idProvincia" />
+    </Key>
+    <Property Name="idProvincia" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="idSucursal" />
+    </Key>
+    <Property Name="idSucursal" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Telefono">
+    <Key>
+      <PropertyRef Name="cedulaCliente" />
+      <PropertyRef Name="numTelefono" />
+    </Key>
+    <Property Name="cedulaCliente" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="numTelefono" Type="char" MaxLength="8" Nullable="false" />
+  </EntityType>
+  <Association Name="FKcantonProvincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+    <End Role="Canton" Type="Self.Canton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="idProvincia" />
+      </Principal>
+      <Dependent Role="Canton">
+        <PropertyRef Name="idProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcedulaAbono">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Abono">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcedulaNota">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKclienteDistrito">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="idDistrito" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcorreoCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Correo" Type="Self.Correo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Correo">
+        <PropertyRef Name="cedulaCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcpcAbonos">
+    <End Role="Abono" Type="Self.Abono" Multiplicity="1" />
+    <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Abono">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="CuentaPorCobrar">
+        <PropertyRef Name="codigoAbono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcpcCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="CuentaPorCobrar">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKcpcFactura">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="CuentaPorCobrar">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKdistritoCanton">
+    <End Role="Canton" Type="Self.Canton" Multiplicity="1" />
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="idCanton" />
+      </Principal>
+      <Dependent Role="Distrito">
+        <PropertyRef Name="idCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKfacturaAbono">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="Abono">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKFacturaCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cedula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKidFacturaNota">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="Nota">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKmetodoPago">
+    <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="1" />
+    <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MetodoPago">
+        <PropertyRef Name="idMetodoPago" />
+      </Principal>
+      <Dependent Role="Abono">
+        <PropertyRef Name="idMetodoPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="idSucursal" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkTelefonoCliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="cedula" />
+      </Principal>
+      <Dependent Role="Telefono">
+        <PropertyRef Name="cedulaCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="create_abono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="monto" Type="money" Mode="In" />
+    <Parameter Name="idMetodoPago" Type="char" Mode="In" />
+    <Parameter Name="cedula" Type="char" Mode="In" />
+    <Parameter Name="idFactura" Type="char" Mode="In" />
+  </Function>
+  <Function Name="create_canton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCanton" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="create_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedula" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="saldoGeneral" Type="money" Mode="In" />
+    <Parameter Name="direccionExacta" Type="varchar" Mode="In" />
+    <Parameter Name="idDistrito" Type="char" Mode="In" />
+  </Function>
+  <Function Name="create_correo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedulaCliente" Type="char" Mode="In" />
+    <Parameter Name="correo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="create_cuentaPorCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo" Type="char" Mode="In" />
+    <Parameter Name="plazo" Type="int" Mode="In" />
+    <Parameter Name="vencimiento" Type="date" Mode="In" />
+    <Parameter Name="saldo" Type="money" Mode="In" />
+    <Parameter Name="idFactura" Type="char" Mode="In" />
+    <Parameter Name="cedula" Type="char" Mode="In" />
+    <Parameter Name="codigoAbono" Type="char" Mode="In" />
+  </Function>
+  <Function Name="create_distrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idDistrito" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="create_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idFactura" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="montoBruto" Type="money" Mode="In" />
+    <Parameter Name="montoDescuento" Type="money" Mode="In" />
+    <Parameter Name="montoImpuesto" Type="money" Mode="In" />
+    <Parameter Name="montoNeto" Type="money" Mode="In" />
+    <Parameter Name="notas" Type="varchar" Mode="In" />
+    <Parameter Name="credito" Type="bit" Mode="In" />
+    <Parameter Name="contado" Type="bit" Mode="In" />
+    <Parameter Name="cedula" Type="char" Mode="In" />
+    <Parameter Name="idSucursal" Type="char" Mode="In" />
+  </Function>
+  <Function Name="create_metodoPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idMetodoPago" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="metodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="create_provincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idProvincia" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="create_Sucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSucursal" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="create_telefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedulaCliente" Type="char" Mode="In" />
+    <Parameter Name="numTelefono" Type="char" Mode="In" />
+  </Function>
+  <Function Name="delete_canton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCanton" Type="char" Mode="In" />
+  </Function>
+  <Function Name="delete_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedula" Type="char" Mode="In" />
+  </Function>
+  <Function Name="delete_distrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idDistrito" Type="char" Mode="In" />
+  </Function>
+  <Function Name="delete_provincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idProvincia" Type="char" Mode="In" />
+  </Function>
+  <Function Name="delete_Sucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSucursal" Type="char" Mode="In" />
+  </Function>
+  <Function Name="get_abonos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_cantones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_correos_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedula" Type="char" Mode="In" />
+  </Function>
+  <Function Name="get_cuentaPorCobrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_distritos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_facturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_metodoPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_notas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_provincias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_sucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_telefonos_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedula" Type="char" Mode="In" />
+  </Function>
+  <Function Name="modify_abono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigo" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
+    <Parameter Name="monto" Type="money" Mode="In" />
+    <Parameter Name="idMetodoPago" Type="char" Mode="In" />
+    <Parameter Name="cedula" Type="char" Mode="In" />
+    <Parameter Name="idFactura" Type="char" Mode="In" />
+  </Function>
+  <Function Name="modify_canton" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCanton" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="modify_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedula" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="saldoGeneral" Type="money" Mode="In" />
+    <Parameter Name="direccionExacta" Type="varchar" Mode="In" />
+    <Parameter Name="idDistrito" Type="char" Mode="In" />
+  </Function>
+  <Function Name="modify_correo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedulaCliente" Type="char" Mode="In" />
+    <Parameter Name="correo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="modify_distrito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idDistrito" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="modify_provincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idProvincia" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="modify_Sucursal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSucursal" Type="char" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="modify_telefono" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cedulaCliente" Type="char" Mode="In" />
+    <Parameter Name="numTelefono" Type="char" Mode="In" />
+  </Function>
+  <EntityContainer Name="ProyectoModelStoreContainer">
+    <EntitySet Name="Abono" EntityType="Self.Abono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Canton" EntityType="Self.Canton" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Correo" EntityType="Self.Correo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CuentaPorCobrar" EntityType="Self.CuentaPorCobrar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nota" EntityType="Self.Nota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefono" EntityType="Self.Telefono" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FKcantonProvincia" Association="Self.FKcantonProvincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Canton" EntitySet="Canton" />
+    </AssociationSet>
+    <AssociationSet Name="FKcedulaAbono" Association="Self.FKcedulaAbono">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Abono" EntitySet="Abono" />
+    </AssociationSet>
+    <AssociationSet Name="FKcedulaNota" Association="Self.FKcedulaNota">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FKclienteDistrito" Association="Self.FKclienteDistrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FKcorreoCliente" Association="Self.FKcorreoCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Correo" EntitySet="Correo" />
+    </AssociationSet>
+    <AssociationSet Name="FKcpcAbonos" Association="Self.FKcpcAbonos">
+      <End Role="Abono" EntitySet="Abono" />
+      <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FKcpcCliente" Association="Self.FKcpcCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FKcpcFactura" Association="Self.FKcpcFactura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+    </AssociationSet>
+    <AssociationSet Name="FKdistritoCanton" Association="Self.FKdistritoCanton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="Distrito" EntitySet="Distrito" />
+    </AssociationSet>
+    <AssociationSet Name="FKfacturaAbono" Association="Self.FKfacturaAbono">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Abono" EntitySet="Abono" />
+    </AssociationSet>
+    <AssociationSet Name="FKFacturaCliente" Association="Self.FKFacturaCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FKidFacturaNota" Association="Self.FKidFacturaNota">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="Nota" EntitySet="Nota" />
+    </AssociationSet>
+    <AssociationSet Name="FKmetodoPago" Association="Self.FKmetodoPago">
+      <End Role="MetodoPago" EntitySet="MetodoPago" />
+      <End Role="Abono" EntitySet="Abono" />
+    </AssociationSet>
+    <AssociationSet Name="FKSucursal" Association="Self.FKSucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fkTelefonoCliente" Association="Self.fkTelefonoCliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Telefono" EntitySet="Telefono" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

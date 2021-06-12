@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5a3053c34764f9eb951f46dc0b5ba35" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="ProyectoModel.Abono" PointX="12" PointY="7.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Canton" PointX="3" PointY="8.125" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Cliente" PointX="7.5" PointY="7.375" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Correo" PointX="9.75" PointY="12" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.CuentaPorCobrar" PointX="14.25" PointY="7.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Distrito" PointX="5.25" PointY="8.125" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Factura" PointX="9.75" PointY="7" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.MetodoPago" PointX="9.75" PointY="4.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Nota" PointX="12" PointY="3.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Provincia" PointX="0.75" PointY="8.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Sucursal" PointX="7.5" PointY="4.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoModel.Telefono" PointX="9.75" PointY="14.25" Width="1.5" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcedulaAbono" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcpcAbonos" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKfacturaAbono" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKmetodoPago" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcantonProvincia" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKdistritoCanton" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcedulaNota" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKclienteDistrito" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcorreoCliente" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcpcCliente" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKFacturaCliente" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.fkTelefonoCliente" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKcpcFactura" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKidFacturaNota" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoModel.FKSucursal" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
