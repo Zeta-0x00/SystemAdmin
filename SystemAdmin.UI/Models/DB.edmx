@@ -519,12 +519,12 @@
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Precision="0" />
-          <Property Name="monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="idMetodoPago" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="fecha" Precision="0" Type="DateTime" />
+          <Property Name="monto" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="idMetodoPago" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="cedula" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="idFactura" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Cliente" Relationship="Self.FKcedulaAbono" FromRole="Abono" ToRole="Cliente" />
           <NavigationProperty Name="CuentaPorCobrar" Relationship="Self.FKcpcAbonos" FromRole="Abono" ToRole="CuentaPorCobrar" />
           <NavigationProperty Name="Factura" Relationship="Self.FKfacturaAbono" FromRole="Abono" ToRole="Factura" />
@@ -534,9 +534,9 @@
           <Key>
             <PropertyRef Name="idCanton" />
           </Key>
-          <Property Name="idCanton" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idProvincia" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idCanton" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="idProvincia" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Provincia" Relationship="Self.FKcantonProvincia" FromRole="Canton" ToRole="Provincia" />
           <NavigationProperty Name="Distrito" Relationship="Self.FKdistritoCanton" FromRole="Canton" ToRole="Distrito" />
         </EntityType>
@@ -544,11 +544,11 @@
           <Key>
             <PropertyRef Name="cedula" />
           </Key>
-          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="saldoGeneral" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="direccionExacta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idDistrito" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cedula" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="saldoGeneral" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="direccionExacta" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="idDistrito" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Abono" Relationship="Self.FKcedulaAbono" FromRole="Cliente" ToRole="Abono" />
           <NavigationProperty Name="Nota" Relationship="Self.FKcedulaNota" FromRole="Cliente" ToRole="Nota" />
           <NavigationProperty Name="Distrito" Relationship="Self.FKclienteDistrito" FromRole="Cliente" ToRole="Distrito" />
@@ -562,21 +562,21 @@
             <PropertyRef Name="cedulaCliente" />
             <PropertyRef Name="correo1" />
           </Key>
-          <Property Name="cedulaCliente" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="correo1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cedulaCliente" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="correo1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
           <NavigationProperty Name="Cliente" Relationship="Self.FKcorreoCliente" FromRole="Correo" ToRole="Cliente" />
         </EntityType>
         <EntityType Name="CuentaPorCobrar">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="plazo" Type="Int32" Nullable="false" />
-          <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="saldo" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="codigoAbono" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="plazo" Nullable="false" Type="Int32" />
+          <Property Name="vencimiento" Nullable="false" Precision="0" Type="DateTime" />
+          <Property Name="saldo" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="idFactura" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="cedula" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="codigoAbono" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Abono" Relationship="Self.FKcpcAbonos" FromRole="CuentaPorCobrar" ToRole="Abono" />
           <NavigationProperty Name="Cliente" Relationship="Self.FKcpcCliente" FromRole="CuentaPorCobrar" ToRole="Cliente" />
           <NavigationProperty Name="Factura" Relationship="Self.FKcpcFactura" FromRole="CuentaPorCobrar" ToRole="Factura" />
@@ -585,9 +585,9 @@
           <Key>
             <PropertyRef Name="idDistrito" />
           </Key>
-          <Property Name="idDistrito" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idCanton" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idDistrito" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="idCanton" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Canton" Relationship="Self.FKdistritoCanton" FromRole="Distrito" ToRole="Canton" />
           <NavigationProperty Name="Cliente" Relationship="Self.FKclienteDistrito" FromRole="Distrito" ToRole="Cliente" />
         </EntityType>
@@ -595,17 +595,17 @@
           <Key>
             <PropertyRef Name="idFactura" />
           </Key>
-          <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Precision="0" />
-          <Property Name="montoBruto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="montoDescuento" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="montoImpuesto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="montoNeto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="notas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="credito" Type="Boolean" Nullable="false" />
-          <Property Name="contado" Type="Boolean" Nullable="false" />
-          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idSucursal" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idFactura" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="fecha" Precision="0" Type="DateTime" />
+          <Property Name="montoBruto" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="montoDescuento" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="montoImpuesto" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="montoNeto" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="notas" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="credito" Nullable="false" Type="Boolean" />
+          <Property Name="contado" Nullable="false" Type="Boolean" />
+          <Property Name="cedula" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="idSucursal" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Abono" Relationship="Self.FKfacturaAbono" FromRole="Factura" ToRole="Abono" />
           <NavigationProperty Name="Cliente" Relationship="Self.FKFacturaCliente" FromRole="Factura" ToRole="Cliente" />
           <NavigationProperty Name="CuentaPorCobrar" Relationship="Self.FKcpcFactura" FromRole="Factura" ToRole="CuentaPorCobrar" />
@@ -616,23 +616,23 @@
           <Key>
             <PropertyRef Name="idMetodoPago" />
           </Key>
-          <Property Name="idMetodoPago" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="metodo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idMetodoPago" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="metodo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Abono" Relationship="Self.FKmetodoPago" FromRole="MetodoPago" ToRole="Abono" />
         </EntityType>
         <EntityType Name="Nota">
           <Key>
             <PropertyRef Name="idNota" />
           </Key>
-          <Property Name="idNota" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Precision="0" />
-          <Property Name="monto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="notas" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="notaCredito" Type="Boolean" Nullable="false" />
-          <Property Name="notaDebido" Type="Boolean" Nullable="false" />
-          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idFactura" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="idNota" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="fecha" Precision="0" Type="DateTime" />
+          <Property Name="monto" Nullable="false" Precision="19" Scale="4" Type="Decimal" />
+          <Property Name="notas" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="notaCredito" Nullable="false" Type="Boolean" />
+          <Property Name="notaDebido" Nullable="false" Type="Boolean" />
+          <Property Name="cedula" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="idFactura" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Cliente" Relationship="Self.FKcedulaNota" FromRole="Nota" ToRole="Cliente" />
           <NavigationProperty Name="Factura" Relationship="Self.FKidFacturaNota" FromRole="Nota" ToRole="Factura" />
         </EntityType>
@@ -640,16 +640,16 @@
           <Key>
             <PropertyRef Name="idProvincia" />
           </Key>
-          <Property Name="idProvincia" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idProvincia" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
           <NavigationProperty Name="Canton" Relationship="Self.FKcantonProvincia" FromRole="Provincia" ToRole="Canton" />
         </EntityType>
         <EntityType Name="Sucursal">
           <Key>
             <PropertyRef Name="idSucursal" />
           </Key>
-          <Property Name="idSucursal" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idSucursal" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
           <NavigationProperty Name="Factura" Relationship="Self.FKSucursal" FromRole="Sucursal" ToRole="Factura" />
         </EntityType>
         <EntityType Name="Telefono">
@@ -657,13 +657,13 @@
             <PropertyRef Name="cedulaCliente" />
             <PropertyRef Name="numTelefono" />
           </Key>
-          <Property Name="cedulaCliente" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="numTelefono" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="cedulaCliente" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" Type="String" />
+          <Property Name="numTelefono" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" Type="String" />
           <NavigationProperty Name="Cliente" Relationship="Self.fkTelefonoCliente" FromRole="Telefono" ToRole="Cliente" />
         </EntityType>
         <Association Name="FKcedulaAbono">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+          <End Type="Self.Cliente" Multiplicity="1" Role="Cliente" />
+          <End Type="Self.Abono" Multiplicity="*" Role="Abono" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cedula" />
@@ -674,8 +674,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKcpcAbonos">
-          <End Role="Abono" Type="Self.Abono" Multiplicity="1" />
-          <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+          <End Type="Self.Abono" Multiplicity="1" Role="Abono" />
+          <End Type="Self.CuentaPorCobrar" Multiplicity="*" Role="CuentaPorCobrar" />
           <ReferentialConstraint>
             <Principal Role="Abono">
               <PropertyRef Name="codigo" />
@@ -686,8 +686,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKfacturaAbono">
-          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
-          <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+          <End Type="Self.Factura" Multiplicity="1" Role="Factura" />
+          <End Type="Self.Abono" Multiplicity="*" Role="Abono" />
           <ReferentialConstraint>
             <Principal Role="Factura">
               <PropertyRef Name="idFactura" />
@@ -698,8 +698,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKmetodoPago">
-          <End Role="MetodoPago" Type="Self.MetodoPago" Multiplicity="1" />
-          <End Role="Abono" Type="Self.Abono" Multiplicity="*" />
+          <End Type="Self.MetodoPago" Multiplicity="1" Role="MetodoPago" />
+          <End Type="Self.Abono" Multiplicity="*" Role="Abono" />
           <ReferentialConstraint>
             <Principal Role="MetodoPago">
               <PropertyRef Name="idMetodoPago" />
@@ -710,8 +710,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKcantonProvincia">
-          <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
-          <End Role="Canton" Type="Self.Canton" Multiplicity="*" />
+          <End Type="Self.Provincia" Multiplicity="1" Role="Provincia" />
+          <End Type="Self.Canton" Multiplicity="*" Role="Canton" />
           <ReferentialConstraint>
             <Principal Role="Provincia">
               <PropertyRef Name="idProvincia" />
@@ -722,8 +722,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKdistritoCanton">
-          <End Role="Canton" Type="Self.Canton" Multiplicity="1" />
-          <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+          <End Type="Self.Canton" Multiplicity="1" Role="Canton" />
+          <End Type="Self.Distrito" Multiplicity="*" Role="Distrito" />
           <ReferentialConstraint>
             <Principal Role="Canton">
               <PropertyRef Name="idCanton" />
@@ -734,8 +734,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKcedulaNota">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <End Type="Self.Cliente" Multiplicity="1" Role="Cliente" />
+          <End Type="Self.Nota" Multiplicity="*" Role="Nota" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cedula" />
@@ -746,8 +746,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKclienteDistrito">
-          <End Role="Distrito" Type="Self.Distrito" Multiplicity="1" />
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <End Type="Self.Distrito" Multiplicity="1" Role="Distrito" />
+          <End Type="Self.Cliente" Multiplicity="*" Role="Cliente" />
           <ReferentialConstraint>
             <Principal Role="Distrito">
               <PropertyRef Name="idDistrito" />
@@ -758,8 +758,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKcorreoCliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Correo" Type="Self.Correo" Multiplicity="*" />
+          <End Type="Self.Cliente" Multiplicity="1" Role="Cliente" />
+          <End Type="Self.Correo" Multiplicity="*" Role="Correo" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cedula" />
@@ -770,8 +770,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKcpcCliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+          <End Type="Self.Cliente" Multiplicity="1" Role="Cliente" />
+          <End Type="Self.CuentaPorCobrar" Multiplicity="*" Role="CuentaPorCobrar" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cedula" />
@@ -782,8 +782,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKFacturaCliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <End Type="Self.Cliente" Multiplicity="1" Role="Cliente" />
+          <End Type="Self.Factura" Multiplicity="*" Role="Factura" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cedula" />
@@ -794,8 +794,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fkTelefonoCliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+          <End Type="Self.Cliente" Multiplicity="1" Role="Cliente" />
+          <End Type="Self.Telefono" Multiplicity="*" Role="Telefono" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="cedula" />
@@ -806,8 +806,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKcpcFactura">
-          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
-          <End Role="CuentaPorCobrar" Type="Self.CuentaPorCobrar" Multiplicity="*" />
+          <End Type="Self.Factura" Multiplicity="1" Role="Factura" />
+          <End Type="Self.CuentaPorCobrar" Multiplicity="*" Role="CuentaPorCobrar" />
           <ReferentialConstraint>
             <Principal Role="Factura">
               <PropertyRef Name="idFactura" />
@@ -818,8 +818,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKidFacturaNota">
-          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
-          <End Role="Nota" Type="Self.Nota" Multiplicity="*" />
+          <End Type="Self.Factura" Multiplicity="1" Role="Factura" />
+          <End Type="Self.Nota" Multiplicity="*" Role="Nota" />
           <ReferentialConstraint>
             <Principal Role="Factura">
               <PropertyRef Name="idFactura" />
@@ -830,8 +830,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FKSucursal">
-          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
-          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <End Type="Self.Sucursal" Multiplicity="1" Role="Sucursal" />
+          <End Type="Self.Factura" Multiplicity="*" Role="Factura" />
           <ReferentialConstraint>
             <Principal Role="Sucursal">
               <PropertyRef Name="idSucursal" />
@@ -855,64 +855,64 @@
           <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
           <EntitySet Name="Telefono" EntityType="Self.Telefono" />
           <AssociationSet Name="FKcedulaAbono" Association="Self.FKcedulaAbono">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Abono" EntitySet="Abono" />
+            <End EntitySet="Cliente" Role="Cliente" />
+            <End EntitySet="Abono" Role="Abono" />
           </AssociationSet>
           <AssociationSet Name="FKcpcAbonos" Association="Self.FKcpcAbonos">
-            <End Role="Abono" EntitySet="Abono" />
-            <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+            <End EntitySet="Abono" Role="Abono" />
+            <End EntitySet="CuentaPorCobrar" Role="CuentaPorCobrar" />
           </AssociationSet>
           <AssociationSet Name="FKfacturaAbono" Association="Self.FKfacturaAbono">
-            <End Role="Factura" EntitySet="Factura" />
-            <End Role="Abono" EntitySet="Abono" />
+            <End EntitySet="Factura" Role="Factura" />
+            <End EntitySet="Abono" Role="Abono" />
           </AssociationSet>
           <AssociationSet Name="FKmetodoPago" Association="Self.FKmetodoPago">
-            <End Role="MetodoPago" EntitySet="MetodoPago" />
-            <End Role="Abono" EntitySet="Abono" />
+            <End EntitySet="MetodoPago" Role="MetodoPago" />
+            <End EntitySet="Abono" Role="Abono" />
           </AssociationSet>
           <AssociationSet Name="FKcantonProvincia" Association="Self.FKcantonProvincia">
-            <End Role="Provincia" EntitySet="Provincia" />
-            <End Role="Canton" EntitySet="Canton" />
+            <End EntitySet="Provincia" Role="Provincia" />
+            <End EntitySet="Canton" Role="Canton" />
           </AssociationSet>
           <AssociationSet Name="FKdistritoCanton" Association="Self.FKdistritoCanton">
-            <End Role="Canton" EntitySet="Canton" />
-            <End Role="Distrito" EntitySet="Distrito" />
+            <End EntitySet="Canton" Role="Canton" />
+            <End EntitySet="Distrito" Role="Distrito" />
           </AssociationSet>
           <AssociationSet Name="FKcedulaNota" Association="Self.FKcedulaNota">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Nota" EntitySet="Nota" />
+            <End EntitySet="Cliente" Role="Cliente" />
+            <End EntitySet="Nota" Role="Nota" />
           </AssociationSet>
           <AssociationSet Name="FKclienteDistrito" Association="Self.FKclienteDistrito">
-            <End Role="Distrito" EntitySet="Distrito" />
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End EntitySet="Distrito" Role="Distrito" />
+            <End EntitySet="Cliente" Role="Cliente" />
           </AssociationSet>
           <AssociationSet Name="FKcorreoCliente" Association="Self.FKcorreoCliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Correo" EntitySet="Correo" />
+            <End EntitySet="Cliente" Role="Cliente" />
+            <End EntitySet="Correo" Role="Correo" />
           </AssociationSet>
           <AssociationSet Name="FKcpcCliente" Association="Self.FKcpcCliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+            <End EntitySet="Cliente" Role="Cliente" />
+            <End EntitySet="CuentaPorCobrar" Role="CuentaPorCobrar" />
           </AssociationSet>
           <AssociationSet Name="FKFacturaCliente" Association="Self.FKFacturaCliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Factura" EntitySet="Factura" />
+            <End EntitySet="Cliente" Role="Cliente" />
+            <End EntitySet="Factura" Role="Factura" />
           </AssociationSet>
           <AssociationSet Name="fkTelefonoCliente" Association="Self.fkTelefonoCliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Telefono" EntitySet="Telefono" />
+            <End EntitySet="Cliente" Role="Cliente" />
+            <End EntitySet="Telefono" Role="Telefono" />
           </AssociationSet>
           <AssociationSet Name="FKcpcFactura" Association="Self.FKcpcFactura">
-            <End Role="Factura" EntitySet="Factura" />
-            <End Role="CuentaPorCobrar" EntitySet="CuentaPorCobrar" />
+            <End EntitySet="Factura" Role="Factura" />
+            <End EntitySet="CuentaPorCobrar" Role="CuentaPorCobrar" />
           </AssociationSet>
           <AssociationSet Name="FKidFacturaNota" Association="Self.FKidFacturaNota">
-            <End Role="Factura" EntitySet="Factura" />
-            <End Role="Nota" EntitySet="Nota" />
+            <End EntitySet="Factura" Role="Factura" />
+            <End EntitySet="Nota" Role="Nota" />
           </AssociationSet>
           <AssociationSet Name="FKSucursal" Association="Self.FKSucursal">
-            <End Role="Sucursal" EntitySet="Sucursal" />
-            <End Role="Factura" EntitySet="Factura" />
+            <End EntitySet="Sucursal" Role="Sucursal" />
+            <End EntitySet="Factura" Role="Factura" />
           </AssociationSet>
           <FunctionImport Name="create_abono" ReturnType="Collection(Int32)">
             <Parameter Name="codigo" Mode="In" Type="String" />

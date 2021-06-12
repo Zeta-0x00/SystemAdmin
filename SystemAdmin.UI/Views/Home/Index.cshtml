@@ -1,4 +1,4 @@
-﻿@model List<SystemAdmin.UI.Models.ViewModels.ListClientesViewModel>
+﻿@model List<SystemAdmin.UI.Models.get_clientes_Result>
 @{
     ViewBag.Title = "Créditos";
     Layout = "~/Views/Layouts/Layout.cshtml";
@@ -51,8 +51,8 @@
                         <th>Cedula</th>
                         <th>Nombre</th>
                         <th>Saldo General</th>
-                        <th>Dirección exácta</th>
                         <th>Distrito ID</th>
+                        <th>Direccion Exacta</th>
                     </tr>
                     @foreach (var oELemento in Model)
                     {
@@ -60,8 +60,8 @@
                     <td>@oELemento.cedula</td>
                     <td>@oELemento.nombre</td>
                     <td>@oELemento.saldoGeneral</td>
-                    <td>@oELemento.direcconExacta</td>
                     <td>@oELemento.idDistrito</td>
+                    <td>@oELemento.direccionExacta</td>
                 </tr>
                     }
                 </table>
