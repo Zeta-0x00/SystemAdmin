@@ -21,15 +21,7 @@ namespace SystemAdmin.UI.Controllers
             //  return View();
             using (ProyectoEntities db = new ProyectoEntities())
             {
-                //lst = (from d in db.Cliente
-                //       select new ListClientesViewModel
-                //       {
-                //           cedula = d.cedula,
-                //           nombre = d.nombre,
-                //           saldoGeneral = (float)d.saldoGeneral,
-                //           direcconExacta = d.direccionExacta,
-                //           idDistrito = d.idDistrito
-                //       }).ToList();
+              
                 db.Configuration.LazyLoadingEnabled = false;
                 lst = db.get_clientes().ToList();
             }
