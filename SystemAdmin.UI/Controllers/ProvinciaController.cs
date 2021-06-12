@@ -17,7 +17,7 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
-        public ActionResult Eliminar()
+        public ActionResult Provincias()
         {
             return View();
         }

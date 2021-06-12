@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SystemAdmin.UI.Models;
-using SystemAdmin.UI.Models.ViewModels;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SystemAdmin.UI.Controllers

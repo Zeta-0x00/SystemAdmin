@@ -1,0 +1,30 @@
+﻿
+@{ ViewBag.Title = "Abonos";
+    Layout = "~/Views/Layouts/Layout.cshtml"; }
+
+
+<link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+    <!--foreach clientes-->
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Assets/img/Abono.png" alt="Card image cap">
+            <div class="card-body">
+
+                <h5 class="card-title">id_abono</h5>
+                <p class="card-text">fecha_abono</p>
+                <p class="card-text">monto_abono</p>
+                <p class="card-text">id_metodoPago</p>
+                <p class="card-text">cedula_cliente</p>
+                <p class="card-text">id_factura</p>
+
+                <a class="btn btn-secondary btn-lg" href="/Abono/Editar" role="button">Editar</a>
+                <button type="button" class="btn btn-danger btn-lg">Borrar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

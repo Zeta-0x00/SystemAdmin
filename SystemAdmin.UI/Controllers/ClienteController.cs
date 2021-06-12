@@ -8,11 +8,6 @@ namespace SystemAdmin.UI.Controllers
 {
     public class ClienteController : Controller
     {
-        // GET: Cliente
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult Crear()
         {
             return View();
@@ -22,7 +17,7 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
-        public ActionResult Eliminar()
+        public ActionResult Clientes()
         {
             return View();
         }

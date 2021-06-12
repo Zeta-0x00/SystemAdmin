@@ -13,5 +13,9 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
+        public ActionResult Metodos()
+        {
+            return View();
+        }
     }
 }

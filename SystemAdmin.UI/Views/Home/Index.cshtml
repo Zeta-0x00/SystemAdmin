@@ -1,8 +1,6 @@
 ﻿@model List<SystemAdmin.UI.Models.get_clientes_Result>
-@{
-    ViewBag.Title = "Créditos";
-    Layout = "~/Views/Layouts/Layout.cshtml";
-}
+@{ ViewBag.Title = "Créditos";
+                Layout = "~/Views/Layouts/Layout.cshtml"; }
 
 
 <section class="project-team">
@@ -44,27 +42,26 @@
 
 </section>
 <section>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <tr>
-                        <th>Cedula</th>
-                        <th>Nombre</th>
-                        <th>Saldo General</th>
-                        <th>Distrito ID</th>
-                        <th>Direccion Exacta</th>
-                    </tr>
-                    @foreach (var oELemento in Model)
-                    {
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
                 <tr>
-                    <td>@oELemento.cedula</td>
-                    <td>@oELemento.nombre</td>
-                    <td>@oELemento.saldoGeneral</td>
-                    <td>@oELemento.idDistrito</td>
-                    <td>@oELemento.direccionExacta</td>
+                    <th>Cedula</th>
+                    <th>Nombre</th>
+                    <th>Saldo General</th>
+                    <th>Distrito ID</th>
+                    <th>Direccion Exacta</th>
                 </tr>
-                    }
-                </table>
-            </div>
+                @foreach (var oELemento in Model)
+                {
+    <tr>
+        <td>@oELemento.cedula</td>
+        <td>@oELemento.nombre</td>
+        <td>@oELemento.saldoGeneral</td>
+        <td>@oELemento.idDistrito</td>
+        <td>@oELemento.direccionExacta</td>
+    </tr>}
+            </table>
         </div>
-    </section>
+    </div>
+</section>

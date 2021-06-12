@@ -17,5 +17,9 @@ namespace SystemAdmin.UI.Controllers
         {
             return View();
         }
+        public ActionResult Abonos()
+        {
+            return View();
+        }
     }
 }
