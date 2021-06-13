@@ -1,5 +1,5 @@
-﻿@model List<SystemAdmin.UI.Models.get_abonos_Result>
-@{ ViewBag.Title = "Abonos";
+﻿@model List<SystemAdmin.UI.Models.get_cuentaPorCobrar_Result>
+@{ ViewBag.Title = "Cuentas Por Cobrar";
     Layout = "~/Views/Layouts/Layout.cshtml"; }
 
 
@@ -11,17 +11,19 @@
     {
         <div class="col">
             <div class="card">
-                <img class="card-img-top" src="~/Assets/img/Abono.png" alt="Card image cap">
+                <img class="card-img-top" src="~/Assets/img/Cuenta.png" alt="Card image cap">
                 <div class="card-body">
 
                     <h5 class="card-title">@oELemento.codigo</h5>
-                    <p class="card-text">Fecha =  @oELemento.fecha</p>
-                    <p class="card-text">Monto =  @oELemento.monto</p>
-                    <p class="card-text">Metodo Pago =  @oELemento.idMetodoPago</p>
                     <p class="card-text">Cliente =  @oELemento.cedula</p>
-                    <p class="card-text">Factura = @oELemento.idFactura</p>
+                    <p class="card-text">Plazo =  @oELemento.plazo</p>
+                    <p class="card-text">Vencimiento =  @oELemento.vencimiento</p>
+                    <p class="card-text">Saldo =  @oELemento.saldo</p>
 
-                    <a class="btn btn-secondary btn-lg" href="/Abono/Editar" role="button">Editar</a>
+                    <p class="card-text">Factura =  @oELemento.idFactura</p>
+                    <p class="card-text">Abono =  @oELemento.codigoAbono</p>
+
+
                     <button type="button" class="btn btn-danger btn-lg">Borrar</button>
                 </div>
             </div>

@@ -1,0 +1,41 @@
+﻿@model List<SystemAdmin.UI.Models.get_notas_Result>
+@{ ViewBag.Title = "Notas";
+    Layout = "~/Views/Layouts/Layout.cshtml"; }
+
+
+<link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+
+    <!--foreach clientes-->
+    @foreach (var oELemento in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="~/Assets/img/Nota.png" alt="Card image cap">
+                <div class="card-body">
+
+                    <h5 class="card-title"> @oELemento.idNota </h5>
+                    <p class="card-text">Cliente =  @oELemento.cedula</p>
+                    <p class="card-text">Fecha =  @oELemento.fecha</p>
+                    <p class="card-text">Monto =  @oELemento.monto </p>
+                    <p class="card-text">Factura =  @oELemento.idFactura </p>
+                    <p class="card-text">Notas =  @oELemento.notas
+                    @if (@oELemento.notaCredito == true)
+                    {
+                        <p class="card-text">Nota de credito </p>
+                    }
+                    else
+                    { 
+                        <p class="card-text">Nota de debito </p>
+                    }
+
+
+                    <button type="button" class="btn btn-danger btn-lg">Borrar</button>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

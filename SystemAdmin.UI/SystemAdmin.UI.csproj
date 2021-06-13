@@ -129,6 +129,7 @@
     <Content Include="Assets\img\chat-avatar.jpg" />
     <Content Include="Assets\img\chat-avatar2.jpg" />
     <Content Include="Assets\img\cliente.png" />
+    <Content Include="Assets\img\Cuenta.png" />
     <Content Include="Assets\img\customSelect-arrow.gif" />
     <Content Include="Assets\img\Distrito.png" />
     <Content Include="Assets\img\Efectivo.png" />
@@ -149,6 +150,7 @@
     <Content Include="Assets\img\line-icon.png" />
     <Content Include="Assets\img\logo-big.png" />
     <Content Include="Assets\img\mail-avatar.jpg" />
+    <Content Include="Assets\img\Nota.png" />
     <Content Include="Assets\img\profile-avatar.jpg" />
     <Content Include="Assets\img\profile-widget-avatar.jpg" />
     <Content Include="Assets\img\right-arrow.png" />
@@ -491,7 +493,6 @@
     <Content Include="Views\Cliente\Eliminar.cshtml" />
     <Content Include="Views\MetodoPago\Crear.cshtml" />
     <Content Include="Views\Factura\Crear.cshtml" />
-    <Content Include="Views\Factura\Editar.cshtml" />
     <Content Include="Views\Abono\Crear.cshtml" />
     <Content Include="Views\Abono\Editar.cshtml" />
     <Content Include="Views\Nota\Crear.cshtml" />
@@ -516,6 +517,9 @@
     <Content Include="Views\Sucursal\Sucursales.cshtml" />
     <Content Include="Views\Abono\Abonos.cshtml" />
     <Content Include="Views\Canton\Cantones.cshtml" />
+    <Content Include="Views\Nota\Notas.cshtml" />
+    <Content Include="Views\Factura\Facturas.cshtml" />
+    <Content Include="Views\CuentaPorCobrar\Cuentas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
