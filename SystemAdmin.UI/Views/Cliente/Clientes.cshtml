@@ -1,24 +1,26 @@
-﻿@{ ViewBag.Title = "Clientes";
+﻿@model List<SystemAdmin.UI.Models.get_clientes_Result>
+@{ ViewBag.Title = "Clientes";
     Layout = "~/Views/Layouts/Layout.cshtml"; }
 
 <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
 
 <div class="row row-cols-1 row-cols-md-5 g-4">
     <!--foreach clientes-->
-    <div class="col">
-        <div class="card">
-            <img class="card-img-top" src="~/Assets/img/cliente.png" alt="Card image cap">
-            <div class="card-body">
+    @foreach (var oELemento in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="~/Assets/img/cliente.png" alt="Card image cap">
+                <div class="card-body">
 
-                <h5 class="card-title">Nombre.cliente</h5>
-                <p class="card-text">Info.cliente</p>
+                    <h5 class="card-title">@oELemento.nombre</h5>
+                    <p class="card-text">@oELemento.cedula</p>
 
-                <a class="btn btn-secondary btn-lg" href="/Cliente/Editar" role="button">Editar</a>
-                <button type="button" class="btn btn-danger btn-lg">Borrar</button>
+                    <a class="btn btn-secondary btn-lg" href="/Cliente/Editar" role="button">Editar</a>
+                    <button type="button" class="btn btn-danger btn-lg">Borrar</button>
+                </div>
             </div>
         </div>
-    </div>
-
-
-
+      
+    }
 </div>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SystemAdmin.UI.Models;
+
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SystemAdmin.UI.Controllers
@@ -16,23 +17,9 @@ namespace SystemAdmin.UI.Controllers
         public ActionResult Index()
         {
 
-            List<get_clientes_Result> lst;
-            //  return View();
-            using (ProyectoEntities db = new ProyectoEntities())
-            {
-              
-                db.Configuration.LazyLoadingEnabled = false;
-                lst = db.get_clientes().ToList();
-            }
-            
+            return View();
 
-            return View(lst);
-            
         }
-
-
-      
-
 
     }
 }
