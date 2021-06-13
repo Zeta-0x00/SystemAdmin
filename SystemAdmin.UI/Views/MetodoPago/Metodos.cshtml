@@ -1,4 +1,4 @@
-﻿
+﻿@model List<SystemAdmin.UI.Models.get_metodoPago_Result>
 @{ ViewBag.Title = "Métodos de Pago";
     Layout = "~/Views/Layouts/Layout.cshtml"; }
 
@@ -6,18 +6,20 @@
 
 <div class="row row-cols-1 row-cols-md-5 g-4">
     <!--foreach clientes-->
-    <div class="col">
-        <div class="card">
-            <img class="card-img-top" src="~/Assets/img/Efectivo.png" alt="Card image cap">
-            <div class="card-body">
+    @foreach (var oELemento in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="~/Assets/img/Efectivo.png" alt="Card image cap">
+                <div class="card-body">
 
-                <h5 class="card-title">id_metodoPago</h5>
-                <p class="card-text">nombre_metodoPago</p>
+                    <h5 class="card-title">@oELemento.idMetodoPago</h5>
+                    <p class="card-text">@oELemento.nombre</p>
 
+                </div>
             </div>
         </div>
+    }
+
+
     </div>
-
-
-
-</div>

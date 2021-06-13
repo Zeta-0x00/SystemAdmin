@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using SystemAdmin.UI.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlClient;
+
 namespace SystemAdmin.UI.Controllers
 {
     public class CantonController : Controller
@@ -19,7 +23,17 @@ namespace SystemAdmin.UI.Controllers
         }
         public ActionResult Cantones()
         {
-            return View();
+            List<get_cantones_Result> lst;
+            //  return View();
+            using (ProyectoEntities db = new ProyectoEntities())
+            {
+
+                db.Configuration.LazyLoadingEnabled = false;
+                lst = db.get_cantones().ToList();
+            }
+
+
+            return View(lst);
         }
     }
 }

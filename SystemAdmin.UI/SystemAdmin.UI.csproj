@@ -514,6 +514,8 @@
     <Content Include="Views\MetodoPago\Metodos.cshtml" />
     <Content Include="Views\Provincia\Provincias.cshtml" />
     <Content Include="Views\Sucursal\Sucursales.cshtml" />
+    <Content Include="Views\Abono\Abonos.cshtml" />
+    <Content Include="Views\Canton\Cantones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
